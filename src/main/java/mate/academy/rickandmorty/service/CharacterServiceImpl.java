@@ -1,5 +1,6 @@
 package mate.academy.rickandmorty.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import lombok.RequiredArgsConstructor;
@@ -45,7 +46,8 @@ public class CharacterServiceImpl implements CharacterService {
 
     @Override
     public Character getRandomCharacter() {
-        long id = ThreadLocalRandom.current().nextLong(characterRepository.count());
-        return characterRepository.findById(id).orElseThrow(RuntimeException::new);
+        long id = ThreadLocalRandom.current().nextLong(1, characterRepository.count());
+        return characterRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Cant found random character"));
     }
 }
