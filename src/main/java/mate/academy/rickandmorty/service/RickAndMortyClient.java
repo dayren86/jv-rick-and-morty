@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class RickAndMortyClient {
     private final ObjectMapper objectMapper;
 
-    public CharacterResponseDataDto  getCharacter(String url) {
+    public CharacterResponseDataDto getCharacter(String url) {
         HttpClient httpClient = HttpClient.newHttpClient();
 
         HttpRequest httpRequest = HttpRequest.newBuilder()

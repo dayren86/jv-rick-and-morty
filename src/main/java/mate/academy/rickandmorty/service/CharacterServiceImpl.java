@@ -1,9 +1,7 @@
 package mate.academy.rickandmorty.service;
 
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-
 import lombok.RequiredArgsConstructor;
 import mate.academy.rickandmorty.dto.external.CharacterResponseDataDto;
 import mate.academy.rickandmorty.dto.external.CharacterResultsDto;
@@ -33,13 +31,15 @@ public class CharacterServiceImpl implements CharacterService {
 
     @Override
     public void readAndSaveCharacters() {
-        CharacterResponseDataDto characterResponseDataDto = rickAndMortyClient.getCharacter(BASE_URL);
+        CharacterResponseDataDto characterResponseDataDto =
+                rickAndMortyClient.getCharacter(BASE_URL);
         while (characterResponseDataDto != null) {
             saveCharacters(characterResponseDataDto.getResults());
             if (characterResponseDataDto.getInfo().getNext() == null) {
                 break;
             }
-            characterResponseDataDto = rickAndMortyClient.getCharacter(characterResponseDataDto.getInfo().getNext());
+            characterResponseDataDto =
+                    rickAndMortyClient.getCharacter(characterResponseDataDto.getInfo().getNext());
         }
     }
 

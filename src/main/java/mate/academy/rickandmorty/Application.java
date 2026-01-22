@@ -1,9 +1,6 @@
 package mate.academy.rickandmorty;
 
-import java.util.List;
 import lombok.RequiredArgsConstructor;
-import mate.academy.rickandmorty.dto.external.CharacterResponseDataDto;
-import mate.academy.rickandmorty.dto.external.CharacterResultsDto;
 import mate.academy.rickandmorty.service.CharacterService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
