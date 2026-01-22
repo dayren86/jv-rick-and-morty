@@ -1,4 +1,4 @@
-package mate.academy.rickandmorty.controler;
+package mate.academy.rickandmorty.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

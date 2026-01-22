@@ -46,7 +46,7 @@ public class CharacterServiceImpl implements CharacterService {
 
     @Override
     public Character getRandomCharacter() {
-        long id = ThreadLocalRandom.current().nextLong(1, characterRepository.count());
+        long id = ThreadLocalRandom.current().nextLong(1, characterRepository.count() + 1);
         return characterRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Cant found random character"));
     }

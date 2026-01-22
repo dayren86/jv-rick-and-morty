@@ -8,13 +8,14 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import lombok.RequiredArgsConstructor;
 import mate.academy.rickandmorty.dto.external.CharacterResponseDataDto;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
 public class RickAndMortyClient {
     private final ObjectMapper objectMapper;
-    private final HttpClient httpClient = HttpClient.newHttpClient();
+    private HttpClient httpClient;
 
     public CharacterResponseDataDto getCharacter(String url) {
         HttpRequest httpRequest = HttpRequest.newBuilder()
@@ -29,5 +30,10 @@ public class RickAndMortyClient {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+    
+    @Bean
+    private void createHttpClient() {
+        httpClient = HttpClient.newHttpClient();
     }
 }
