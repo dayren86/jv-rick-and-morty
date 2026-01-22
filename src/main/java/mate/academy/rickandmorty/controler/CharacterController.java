@@ -16,14 +16,12 @@ public class CharacterController {
     private final CharacterService characterService;
 
     @GetMapping
-    public List<Character> getAllCharacter() {
-        return characterService.getAllCharacters();
+    public Character getRandomCharacter() {
+        return characterService.getRandomCharacter();
     }
 
     @GetMapping("/{name}")
     public List<Character> getCharacterByName(@PathVariable String name) {
-
-        System.out.println(name);
         return characterService.getCharacterByName(name);
     }
 }

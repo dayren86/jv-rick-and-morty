@@ -7,7 +7,9 @@ import mate.academy.rickandmorty.model.Character;
 public interface CharacterService {
     void saveCharacters(List<CharacterResultsDto> characterResultsDto);
 
-    List<Character> getAllCharacters();
-
     List<Character> getCharacterByName(String name);
+
+    void readAndSaveCharacters();
+
+    Character getRandomCharacter();
 }

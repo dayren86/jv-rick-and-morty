@@ -7,5 +7,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CharacterResponseDataDto {
+    private InfoResultDto info;
     private List<CharacterResultsDto> results;
 }
